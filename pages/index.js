@@ -13,7 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const [item, setItem] = useState({
-    image: `/logo-white-on-black.png`,
+    image: `https://aircarbon-payment.vercel.app/logo-white-on-black.png`,
     amount: 0,
   });
 
