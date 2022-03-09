@@ -15,7 +15,7 @@ async function CreateStripeSession(req, res) {
         images: [item.image],
         name: item.name,
       },
-      unit_amount: item.price * 100,
+      unit_amount: item.price,
     },
     description: item.description,
     quantity: item.quantity,
