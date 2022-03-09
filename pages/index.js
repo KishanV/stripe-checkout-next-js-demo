@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -13,8 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const [item, setItem] = useState({
-    image:
-      "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
+    image: `https://static.wixstatic.com/media/dee5b4_a48f00400ea04a4a8f682e6f6c863e16~mv2.png/v1/fill/w_420,h_116,al_c,usm_0.66_1.00_0.01,enc_auto/logo_white.png`,
     amount: 0,
   });
 
@@ -24,10 +23,6 @@ export default function Home() {
 
   const onInputChange = (e) => {
     changeQuantity(e.target.value);
-  };
-
-  const isInt = (n) => {
-    return n % 1 === 0;
   };
 
   const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
@@ -50,7 +45,6 @@ export default function Home() {
         alert(result.error.message);
       }
     } catch {}
-
     setLoading(false);
   };
   return (
@@ -75,8 +69,10 @@ export default function Home() {
           </div>
         )}
         <div className="shadow-lg border rounded p-2">
-          <Image src={item.image} width={300} height={150} alt={item.name} />
-          <p className="text-sm text-gray-600 mt-10">Amount:</p>
+          <div className="p-10 bg-black">
+            <img width={200} src={item.image} />
+          </div>
+          <p className="text-sm text-gray-600 mt-4">Amount:</p>
           <div className="border rounded">
             <input
               type="number"
