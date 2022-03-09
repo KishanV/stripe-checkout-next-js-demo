@@ -13,7 +13,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const [item, setItem] = useState({
-    image: `https://static.wixstatic.com/media/dee5b4_a48f00400ea04a4a8f682e6f6c863e16~mv2.png/v1/fill/w_420,h_116,al_c,usm_0.66_1.00_0.01,enc_auto/logo_white.png`,
+    image: `/logo-white-on-black.png`,
     amount: 0,
   });
 
